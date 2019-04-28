@@ -45,7 +45,7 @@ public class MyHeap{
     //children root idx
     index = 2 * index + 1;
 
-    while(index < size){
+    while (index < size){
       //left child
       int left = data[index];
       int max = left;
@@ -60,7 +60,7 @@ public class MyHeap{
         }
       }
       //compares parent and better child
-      if(data[current] < max){
+      if (data[current] < max){
         swap(data,current,index);
         current = index;
       }
@@ -82,7 +82,7 @@ public class MyHeap{
     else{
       int levels = 0;
       int counter = 1;
-      while(size > 0){
+      while (size > 0){
         levels++;
         size -= counter;
         counter *= 2;
@@ -91,13 +91,13 @@ public class MyHeap{
     }
     //goes through every level of the heap and pushes down if possible
     int current = branches - 1;
-    while(current > 0){
+    while (current > 0){
       //checks maximum and minimum levels of pushing down
       int min = (int)Math.pow(2 , current-1) - 1;
       int max = (int)Math.pow(2 , current) - 2;
 
       for(int i = max; i >= min; i--){
-        pushDown(data,data.length,i);
+        pushDown(data , data.length , i);
       }
       current--;
     }
@@ -108,9 +108,9 @@ public class MyHeap{
     heapify(data);
 
     int size = data.length-1;
-    while(size > 0){
-      swap(data,0,size);
-      pushDown(data,size,0);
+    while (size > 0){
+      swap(data , 0 , size);
+      pushDown(data , size , 0);
       size--;
     }
 

@@ -105,16 +105,20 @@ public class MyHeap{
 
 
   public static void heapsort(int[] data){
+    //converts into a heap
     heapify(data);
 
     int size = data.length-1;
+    //goes through the array
     while (size > 0){
+      //swaps elements and pushes down as needed
       swap(data , 0 , size);
       pushDown(data , size , 0);
       size--;
     }
 
   }
+
 
   private static void swap(int[] data, int a, int b){
     int temp = data[a];
